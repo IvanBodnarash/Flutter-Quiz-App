@@ -13,45 +13,50 @@ class SummaryItem extends StatelessWidget {
     final isCorrectAnswer =
         itemData['user_answer'] == itemData['correct_answer'];
 
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        QuestionIdentifier(
-          isCorrectAnswer: isCorrectAnswer,
-          questionIndex: itemData['question_index'] as int,
-        ),
-        const SizedBox(width: 20),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                itemData['question'] as String,
-                style: GoogleFonts.outfit(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              Text(
-                itemData['user_answer'] as String,
-                style: GoogleFonts.outfit(
-                  color: const Color.fromARGB(255, 227, 170, 133),
-                ),
-              ),
-              Text(
-                itemData['correct_answer'] as String,
-                style: GoogleFonts.outfit(
-                  color: const Color.fromARGB(255, 139, 179, 239),
-                ),
-              ),
-            ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        vertical: 8,
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          QuestionIdentifier(
+            isCorrectAnswer: isCorrectAnswer,
+            questionIndex: itemData['question_index'] as int,
           ),
-        )
-      ],
+          const SizedBox(width: 20),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  itemData['question'] as String,
+                  style: GoogleFonts.outfit(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  itemData['user_answer'] as String,
+                  style: GoogleFonts.outfit(
+                    color: const Color.fromARGB(255, 227, 170, 133),
+                  ),
+                ),
+                Text(
+                  itemData['correct_answer'] as String,
+                  style: GoogleFonts.outfit(
+                    color: const Color.fromARGB(255, 139, 179, 239),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
